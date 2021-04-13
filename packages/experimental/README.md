@@ -23,7 +23,7 @@ and the password cannot be changed. But for backwards compatibility and for simp
 testing, we provide it here.
 
 ```javascript
-import { BrainWallet } from "@ethersproject/experimenatl/brain-wallet";
+import { BrainWallet } from "@ethersproject/experimental/brain-wallet";
 
 // This is optional, but since a Brain Wallet can take 5-10s to generate,
 // helps keep your users informed
@@ -49,7 +49,7 @@ BrainWallet.generate(username, password, showProgess).then((wallet) => {
 **NonceManager**
 
 ```javascript
-import { NonceManager } from "@ethersproject/experimenatl/nonce-manager";
+import { NonceManager } from "@ethersproject/experimental/nonce-manager";
 
 let signer = "... any way you get a signer ...";
 
@@ -64,7 +64,7 @@ let managedSigner = new NonceManager(signer);
 **RetryProvider**
 
 ```javascript
-import { RetryProvider } from "@ethersproject/experimenatl/retry-provider";
+import { RetryProvider } from "@ethersproject/experimental/retry-provider";
 
 let provider = "... any way you get a signer...";
 
@@ -75,6 +75,17 @@ let options = {
 let retryProivder = new RetryProvider(provider, options);
 ```
 
+**_Eip1193Bridge**
+Ethereum Provider JavaScript API for consistency across clients and applications. See [EIP 1193](https://eips.ethereum.org/EIPS/eip-1193) for more details.
+
+```javascript
+import { _Eip1193Bridge } from "@ethersproject/experimental";
+
+const signer = "... any way you get a signer...";
+const provider = "... any way you get a provider...";
+
+const proivder = new _Eip1193Bridge(signer, provider);
+```
 
 License
 -------
