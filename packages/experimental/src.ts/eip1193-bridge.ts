@@ -21,10 +21,14 @@ export class _Eip1193Bridge extends EventEmitter {
      readonly signer: ethers.Signer;
      readonly provider: ethers.providers.Provider;
 
-     constructor(signer: ethers.Signer, provider?: ethers.providers.Provider) {
+     constructor(signer: ethers.Signer, provider: ethers.providers.Provider) {
          super();
          ethers.utils.defineReadOnly(this, "signer", signer);
-         ethers.utils.defineReadOnly(this, "provider", provider || null);
+         ethers.utils.defineReadOnly(this, "provider", provider);
+     }
+
+     getSigner(): ethers.Signer {
+         return this.signer;
      }
 
      async send(method: string, params?: Array<any>): Promise<any> {
